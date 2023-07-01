@@ -1,15 +1,9 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { NavLink } from "react-router-dom";
+import { Endpoint } from "../routes";
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-]
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
-const Heading = () => {
+const Heading = (props: {routes: Endpoint[]}) => {
     return (
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
@@ -27,21 +21,23 @@ const Heading = () => {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className={classNames(
-                              item.current
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                              'rounded-md px-3 py-2 text-sm font-medium'
-                            )}
-                            aria-current={item.current ? 'page' : undefined}
-                          >
-                            {item.name}
-                          </a>
-                        ))}
+                        {props.routes.map(({path, name}) => {
+                          return (
+                            <NavLink
+                              key={name}
+                              to={path}
+                              className={
+                                ({isActive}) => {
+                                  const style = " rounded-md px-3 py-2 text-sm font-medium"
+                                  return isActive ? 'bg-gray-900 text-white' + style
+                                    : 'text-gray-300 hover:bg-gray-700 hover:text-white' + style
+                                }
+                              }
+                            >
+                              {name}
+                            </NavLink>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -61,18 +57,23 @@ const Heading = () => {
 
               <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                  {navigation.map((item) => (
+                  {props.routes.map(({name, path}) => (
                     <Disclosure.Button
-                      key={item.name}
-                      as="a"
-                      href={item.href}
-                      className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                        'block rounded-md px-3 py-2 text-base font-medium'
-                      )}
-                      aria-current={item.current ? 'page' : undefined}
+                      key={name}
                     >
-                      {item.name}
+                      <NavLink
+                        key={name}
+                        to={path}
+                        className={
+                          ({isActive}) => {
+                            const style = " rounded-md px-3 py-2 text-sm font-medium"
+                            return isActive ? 'bg-gray-900 text-white' + style
+                              : 'text-gray-300 hover:bg-gray-700 hover:text-white' + style
+                          }
+                        }
+                      >
+                        {name}
+                      </NavLink>
                     </Disclosure.Button>
                   ))}
                 </div>
