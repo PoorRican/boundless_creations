@@ -1,6 +1,6 @@
 const Home = () => {
     return (
-        <main className="px-8 lg:mb-16 sm:mb-8 mx-auto text-white block md:max-w-4xl sm:max-w-full">
+        <main className="px-8 lg:mb-16 sm:mb-8 mx-auto block md:max-w-4xl sm:max-w-full">
             <h1 className="mt-16 mb-8 text-2xl">Welcome to my homepage</h1>
             <article className="prose prose-slate lg:prose-xl">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
