@@ -6,8 +6,9 @@ export enum Status {
 
 interface ProjectIface {
     title: string;
-    description: string,
-    status: Status,
+    description: string;
+    status: Status;
+    key?: number;
 }
 
 export const Project = (props: ProjectIface) => {

@@ -62,7 +62,6 @@ const Heading = (props: {routes: Endpoint[]}) => {
                       key={name}
                     >
                       <NavLink
-                        key={name}
                         to={path}
                         className={
                           ({isActive}) => {
