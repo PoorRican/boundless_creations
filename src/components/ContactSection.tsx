@@ -16,16 +16,21 @@ const contact_links: Site[] = [
   }
 ];
 
-export default function ContactSection() {
+export default function ContactSection(props: {className: string}) {
   return (
-    <section className="m-1 ring-1 p-6 mb-8 rounded-xl">
-      <ul className="flex flex-col gap-4">
+    <section className={props.className}>
+      <h3 className="mb-4">
+        <span className="border-slate-700 border-b border-dashed text-lg pb-2 pr-2">
+          Catch me online
+        </span>
+      </h3>
+      <ul className="flex flex-row gap-4">
         {contact_links.map(({name, url, icon}) => {
           return (
-            <li className=""
+            <li className="border-b-2 border-dashed border-slate-800 rounded-xl px-4 py-1"
                 key={name}
             >
-              <a href={url} className="text-lg">
+              <a href={url} className="text-md">
                 <span>{icon ? icon : ''}</span>
 
                 <span>{name}</span>
