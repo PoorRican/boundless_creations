@@ -1,27 +1,6 @@
 import {Project, Status} from "../components/Project";
+import projects from "../data/projects.json"
 
-const projects = [
-    {
-        title: "Test Title",
-        description: "Testing lorem ipsum",
-        status: Status.InProgress,
-    },
-    {
-        title: "Test Title",
-        description: "",
-        status: Status.Active,
-    },
-    {
-        title: "Test Title",
-        description: "",
-        status: Status.AsIs,
-    },
-    {
-        title: "Test Title",
-        description: "",
-        status: Status.InProgress,
-    },
-];
 
 const Projects = () => {
     let counter = 0;
