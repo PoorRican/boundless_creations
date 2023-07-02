@@ -55,7 +55,7 @@ export default function ContactSection(props: { className: string }) {
           <span className="border-slate-700 border-b border-dashed text-md pb-1 pr-1 font-thin">
             Catch me online:
           </span>
-          <ul className="inline-flex flex-row flex-wrap gap-2 mt-4">
+          <ul className="flex flex-row flex-wrap gap-2 mt-4">
             {contact_links.map(({name, url, icon}) => <ContactLink name={name} url={url} key={url} icon={icon}/>)}
           </ul>
         </div>
