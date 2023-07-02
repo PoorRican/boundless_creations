@@ -3,6 +3,10 @@ import projects from "../assets/projects.json";
 import {Project} from "../components/Project";
 import Main from "../components/ContentWrapper";
 
+const about_me: string = `
+This is a section about me
+`;
+
 const Home = () => {
   return (
     <Main>
@@ -16,7 +20,7 @@ const Home = () => {
         <div className="mt-1">
           <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
           <div className="mt-4">
-            This is a section about me
+            {about_me}
           </div>
         </div>
 
