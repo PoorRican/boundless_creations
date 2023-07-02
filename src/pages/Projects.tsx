@@ -1,5 +1,5 @@
 import {Project, Status} from "../components/Project";
-import projects from "../data/projects.json"
+import projects from "../assets/projects.json"
 
 
 const Projects = () => {
