@@ -52,7 +52,7 @@ export default function ContactSection(props: { className: string }) {
       <div className="inline-flex flex-row w-fit h-fit gap-4">
         <ProfilePic className="inline h-28"/>
         <div className="">
-          <span className="border-slate-700 border-b border-dashed text-md pb-1 pr-1" style={{fontWeight: 100}}>
+          <span className="border-slate-700 border-b border-dashed text-md pb-1 pr-1 font-thin">
             Catch me online:
           </span>
           <ul className="inline-flex flex-row flex-wrap gap-2 mt-4">
