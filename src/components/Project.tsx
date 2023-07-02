@@ -34,7 +34,7 @@ interface ProjectIface {
 export const Project = (props: ProjectIface) => {
     return (
       <a href={props.url ? props.url : "#"}>
-        <article className="m-4 h-40 bg-slate-100 p-5 rounded-md">
+        <article className="m-4 h-40 bg-slate-100 p-5 rounded-md hover:bg-white">
           <h3 className="text-xl text-slate-900 mr-2.5">
             {props.title}
           </h3>
