@@ -2,6 +2,7 @@ import ContactSection from "../components/ContactSection";
 import projects from "../assets/projects.json";
 import {Project} from "../components/Project";
 import Main from "../components/ContentWrapper";
+import {Link} from "react-router-dom";
 
 const about_me: string = `
 This is a section about me
@@ -27,6 +28,11 @@ const Home = () => {
         <div>
           <h2 className="text-2xl font-thin ml-2">
             Recent Projects:
+
+            <Link to={'/projects'}>
+              <button className="rounded bg-slate-800 border-2 border-slate-700 p-1 text-sm ml-4 hover:bg-slate-700">More Projects</button>
+            </Link>
+
           </h2>
           <ul>
             {projects.slice(0, 2).map(({title, description, status}) => {
