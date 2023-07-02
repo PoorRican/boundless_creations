@@ -1,10 +1,12 @@
 import {ReactNode} from "react";
+import profile_pic from "../assets/serious portait profile pic.jpg";
 
 interface Site {
   name: string;
   url: string;
   icon?: ReactNode;
 }
+
 const contact_links: Site[] = [
   {
     name: 'Twitter',
@@ -13,32 +15,51 @@ const contact_links: Site[] = [
   {
     name: 'GitHub',
     url: 'https://github.com/PoorRican'
+  },
+  {
+    name: 'Discord',
+    url: ''
   }
 ];
 
-export default function ContactSection(props: {className: string}) {
+const ProfilePic = (props: { className: string }) => {
+  return (
+    <img src={profile_pic}
+         alt="A dashing young bald man"
+         className={props.className + " rounded-full"}
+    />
+  )
+}
+
+const ContactLink = (props: Site) => {
+  const icon = props.icon ? props.icon : '';
+  return (
+    <a href={props.url} className="">
+      <li className="inline bg-slate-800 border-2 border-slate-700 rounded px-3 pb-1">
+        <span>{icon}</span>
+
+        <span className="text-xs">
+          {props.name}
+        </span>
+      </li>
+    </a>
+  )
+}
+
+export default function ContactSection(props: { className: string }) {
   return (
     <section className={props.className}>
-      <h3 className="mb-4">
-        <span className="border-slate-700 border-b border-dashed text-lg pb-2 pr-2">
-          Catch me online
-        </span>
-      </h3>
-      <ul className="flex flex-row gap-4">
-        {contact_links.map(({name, url, icon}) => {
-          return (
-            <li className="border-b-2 border-dashed border-slate-800 rounded-xl px-4 py-1"
-                key={name}
-            >
-              <a href={url} className="text-md">
-                <span>{icon ? icon : ''}</span>
-
-                <span>{name}</span>
-              </a>
-            </li>
-          )
-        })}
-      </ul>
+      <div className="inline-flex flex-row w-fit h-fit gap-4">
+        <ProfilePic className="inline h-28"/>
+        <div className="">
+          <span className="border-slate-700 border-b border-dashed text-md pb-1 pr-1" style={{fontWeight: 100}}>
+            Catch me online:
+          </span>
+          <ul className="inline-flex flex-row flex-wrap gap-2 mt-4">
+            {contact_links.map(({name, url, icon}) => <ContactLink name={name} url={url} key={url} icon={icon}/>)}
+          </ul>
+        </div>
+      </div>
     </section>
   )
 }
