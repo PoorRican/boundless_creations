@@ -48,7 +48,7 @@ const ContactLink = (props: Site) => {
 
 export default function ContactSection(props: { className: string }) {
   return (
-    <section className={props.className}>
+    <section className={`${props.className} hover:bg-slate-900`}>
       <div className="inline-flex flex-row w-fit h-fit gap-4">
         <ProfilePic className="inline h-28"/>
         <div className="">
