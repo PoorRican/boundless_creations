@@ -1,26 +1,12 @@
 import {ReactNode} from "react";
 import profile_pic from "../assets/serious portait profile pic.jpg";
+import contact_links from "../assets/links.json"
 
 interface Site {
   name: string;
   url: string;
   icon?: ReactNode;
 }
-
-const contact_links: Site[] = [
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/Poor__Rican'
-  },
-  {
-    name: 'GitHub',
-    url: 'https://github.com/PoorRican'
-  },
-  {
-    name: 'Discord',
-    url: ''
-  }
-];
 
 const ProfilePic = (props: { className: string }) => {
   return (
