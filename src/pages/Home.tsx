@@ -1,18 +1,18 @@
 import ContactSection from "../components/ContactSection";
 import projects from "../assets/projects.json";
 import {Project} from "../components/Project";
+import Main from "../components/ContentWrapper";
 
 const Home = () => {
   return (
-    <main className="px-8 lg:mb-16 sm:mb-8 mx-auto block md:max-w-4xl sm:max-w-full">
-
-      <h1 className="mt-16 mb-8 text-4xl" style={{fontWeight: 100}}>
+    <Main>
+      <h1 className="mt-16 mb-8 text-4xl font-thin">
         <span className="border-b border-slate-600 pr-4 pb-2">
           Josué Figueroa
         </span>
       </h1>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-16">
         <div className="mt-1">
           <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
           <div className="mt-4">
@@ -35,8 +35,7 @@ const Home = () => {
           </ul>
         </div>
       </div>
-
-    </main>
+    </Main>
   )
 }
 
