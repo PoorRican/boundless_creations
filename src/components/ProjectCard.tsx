@@ -2,11 +2,17 @@ import Card from "./Card";
 import {Status, StatusBadge} from "./StatusBadge";
 import {Link} from "react-router-dom";
 
+export interface ProjectLinkIface {
+  name: string;
+  url: string;
+}
+
 export interface ProjectIface {
   id: string,
   title: string;
   description: string;
   status: Status;
+  links?: ProjectLinkIface[]
 }
 
 export const ProjectCard = (props: ProjectIface) => {
