@@ -7,7 +7,6 @@ export interface ProjectIface {
   description: string;
   status: Status;
   url?: string;
-  key?: number;
 }
 
 export const ProjectCard = (props: ProjectIface) => {
@@ -21,7 +20,7 @@ export const ProjectCard = (props: ProjectIface) => {
 
           <StatusBadge status={props.status} />
 
-          <p className="mt-2 overflow-ellipsis text-sm text-slate-800" style={{fontWeight: 200}}
+          <p className={"mt-2 overflow-ellipsis text-sm text-slate-800 font-thin"}
              children={props.description} />
         </Card>
       </a>

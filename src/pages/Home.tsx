@@ -41,9 +41,9 @@ const InterestsSection = (props: {className?: string}) => {
   ];
   return (
     <div className={props.className}>
-      <h3 className={"text-xl font-light mb-2"}><span className={"border-b pr-2"}>Interests</span></h3>
+      <h3 className={"text-xl font-light mb-8"}><span className={"border-b border-dashed border-slate-500 pr-2 pb-1"}>Interests</span></h3>
       <ul className={"flex flex-row gap-8 flex-wrap"}>
-        {interests.map( (interest) => <li className={"min-w-fit font-thin"} key={interest}>{interest}</li> )}
+        {interests.map( (interest) => <li className={"min-w-fit font-thin border-b border-dashed border-slate-700 pb-1"} key={interest}>{interest}</li> )}
       </ul>
     </div>
   )
@@ -58,12 +58,12 @@ const Home = () => {
         </span>
       </h1>
 
-      <div className="grid md:grid-cols-2 gap-16">
-        <Blurb className="mb-4"/>
+      <div className="grid md:grid-cols-2 gap-8 md:gap-16">
+        <Blurb />
 
-        <div>
+        <div className={"flex flex-col gap-8"}>
           <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
-          <InterestsSection className={"mt-8"}/>
+          <InterestsSection className={"ring-1 rounded-xl p-6"}/>
         </div>
 
         <div className="md:col-start-1 md:col-end-3">
