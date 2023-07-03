@@ -43,7 +43,7 @@ const Home = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-thin ml-2">
+          <h2 className="text-2xl font-thin ml-2 mb-4">
             Recent Projects:
 
             <Link to={'/projects'}>
@@ -51,7 +51,7 @@ const Home = () => {
             </Link>
 
           </h2>
-          <ul>
+          <ul className="flex flex-col gap-4">
             {projects.slice(0, 2).map(({title, description, status}) => {
               return (
                 <li key={title}>

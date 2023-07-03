@@ -1,3 +1,5 @@
+import Card from "./Card";
+
 export enum Status {
     InProgress,
     AsIs,
@@ -34,7 +36,8 @@ interface ProjectIface {
 export const Project = (props: ProjectIface) => {
     return (
       <a href={props.url ? props.url : "#"}>
-        <article className="m-4 h-40 bg-slate-100 p-5 rounded-md hover:bg-white">
+        <Card className="h-40 bg-slate-100 hover:bg-white" >
+
           <h3 className="text-xl text-slate-900 mr-2.5">
             {props.title}
           </h3>
@@ -43,7 +46,7 @@ export const Project = (props: ProjectIface) => {
 
           <p className="mt-2 overflow-ellipsis text-sm text-slate-800" style={{fontWeight: 200}}
              children={props.description} />
-        </article>
+        </Card>
       </a>
     )
 }
