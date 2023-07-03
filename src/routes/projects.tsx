@@ -10,7 +10,5 @@ export const getProject = (projectId: string) => {
 }
 
 export const loader = ({params}: any) => {
-  console.log(params)
-  const project = getProject(String(params.projectId));
-  return project
+  return getProject(String(params.projectId));
 }
