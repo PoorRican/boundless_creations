@@ -7,7 +7,7 @@ import ReactMarkdown from "react-markdown";
 import about_me from "../assets/about_me.md";
 import React from "react";
 
-const AboutMe = () => {
+const AboutMeBlurb = (props: {className?: string}) => {
   const [text, setText] = React.useState('');
   fetch(about_me as string).then((value) => {
     return value.text();
@@ -15,7 +15,7 @@ const AboutMe = () => {
     setText(value);
   });
   return (
-    <div className="mt-6">
+    <div className={props.className}>
       <ReactMarkdown
         components={{
           p: ({node, ...props}) => <p className="text-base mb-2 font-thin" {...props} />,
@@ -37,12 +37,10 @@ const Home = () => {
       </h1>
 
       <div className="grid md:grid-cols-2 gap-16">
-        <div className="mt-1">
-          <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
-          <AboutMe />
-        </div>
+        <AboutMeBlurb className="mb-4"/>
+        <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
 
-        <div>
+        <div className="md:col-start-1 md:col-end-3">
           <h2 className="text-2xl font-thin ml-2 mb-4">
             Recent Projects:
 
@@ -51,7 +49,7 @@ const Home = () => {
             </Link>
 
           </h2>
-          <ul className="flex flex-col gap-4">
+          <ul className="grid md:grid-cols-2 gap-4">
             {projects.slice(0, 2).map(({title, description, status}) => {
               return (
                 <li key={title}>
