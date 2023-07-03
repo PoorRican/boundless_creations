@@ -3,17 +3,11 @@ import projects from "../assets/projects.json";
 import ContentWrapper from "../components/ContentWrapper";
 import {Link} from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import about_me from "../assets/site_blurb.md";
+import site_blurb from "../assets/site_blurb.json";
 import React from "react";
 import ProjectSection from "../components/ProjectSection";
 
 const Blurb = (props: {className?: string}) => {
-  const [text, setText] = React.useState('');
-  fetch(about_me as string).then((value) => {
-    return value.text();
-  }).then((value) => {
-    setText(value);
-  });
   return (
     <div className={props.className}>
       <ReactMarkdown
@@ -23,7 +17,7 @@ const Blurb = (props: {className?: string}) => {
           "h1": ({node, ...props}) => <h1 className="text-2xl mb-2 font-thin" {...props} />
         }}
 
-      >{text}</ReactMarkdown>
+      >{site_blurb}</ReactMarkdown>
     </div>
   )
 }
