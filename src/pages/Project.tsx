@@ -1,18 +1,23 @@
 import ContentWrapper from "../components/ContentWrapper";
 import {StatusBadge} from "../components/StatusBadge";
 import {useLoaderData} from "react-router-dom";
+import Heading from "../components/Heading";
 
 const Project = () => {
   const project: any = useLoaderData();
 
   return (
-    <ContentWrapper>
-      <h1>{project.title}</h1>
+    <>
+      <Heading />
 
-      <StatusBadge status={project.status} />
+      <ContentWrapper>
+        <h1>{project.title}</h1>
 
-      <p>{project.description}</p>
-    </ContentWrapper>
+        <StatusBadge status={project.status} />
+
+        <p>{project.description}</p>
+      </ContentWrapper>
+    </>
   )
 }
 
