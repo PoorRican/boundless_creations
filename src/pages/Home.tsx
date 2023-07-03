@@ -1,6 +1,6 @@
 import ContactSection from "../components/ContactSection";
 import projects from "../assets/projects.json";
-import Main from "../components/ContentWrapper";
+import ContentWrapper from "../components/ContentWrapper";
 import {Link} from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import about_me from "../assets/site_blurb.md";
@@ -51,7 +51,7 @@ const InterestsSection = (props: {className?: string}) => {
 
 const Home = () => {
   return (
-    <Main>
+    <ContentWrapper>
       <h1 className="mb-8 text-4xl font-thin">
         <span className="border-b border-slate-600 pr-4 pb-2">
           Josué Figueroa
@@ -78,7 +78,7 @@ const Home = () => {
           <ProjectSection projects={projects.slice(0, 3)} />
         </div>
       </div>
-    </Main>
+    </ContentWrapper>
   )
 }
 
