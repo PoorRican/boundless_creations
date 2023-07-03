@@ -27,6 +27,27 @@ const Blurb = (props: {className?: string}) => {
   )
 }
 
+const InterestsSection = (props: {className?: string}) => {
+  const interests = [
+    "Synthetic biology",
+    "Science Fiction",
+    "Rust",
+    "Python",
+    "Biohacking",
+    "Jesus",
+    "BJJ",
+    "Digital Art"
+  ];
+  return (
+    <div className={props.className}>
+      <h3 className={"text-xl font-light mb-2"}><span className={"border-b pr-2"}>Interests</span></h3>
+      <ul className={"flex flex-row gap-8 flex-wrap"}>
+        {interests.map( (interest) => <li className={"min-w-fit font-thin"} key={interest}>{interest}</li> )}
+      </ul>
+    </div>
+  )
+}
+
 const Home = () => {
   return (
     <Main>
@@ -37,8 +58,12 @@ const Home = () => {
       </h1>
 
       <div className="grid md:grid-cols-2 gap-16">
-        <AboutMeBlurb className="mb-4"/>
-        <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
+        <Blurb className="mb-4"/>
+
+        <div>
+          <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
+          <InterestsSection className={"mt-8"}/>
+        </div>
 
         <div className="md:col-start-1 md:col-end-3">
           <h2 className="text-2xl font-thin ml-2 mb-4">
