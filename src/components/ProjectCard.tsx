@@ -18,7 +18,7 @@ export const ProjectCard = (props: ProjectIface) => {
             {props.title}
           </h3>
 
-          <StatusBadge status={props.status} />
+          <StatusBadge status={props.status} className={"text-xs"} />
 
           <p className={"mt-2 overflow-ellipsis text-sm text-slate-800 font-thin"}
              children={props.description} />

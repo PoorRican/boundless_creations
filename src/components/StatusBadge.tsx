@@ -4,7 +4,7 @@ export enum Status {
   Active
 }
 
-export const StatusBadge = (props: { status: Status }) => {
+export const StatusBadge = (props: { status: Status, className?: string }) => {
   const [style, text] = function () {
     switch (props.status) {
       case Status.InProgress:
@@ -16,8 +16,8 @@ export const StatusBadge = (props: { status: Status }) => {
     }
   }();
   return (
-    <span className={`${style} mb-4 text-white items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset`}
-          style={{fontWeight: 100}}
+    <span className={`${style} ${props.className} mb-4 text-white items-center rounded-md
+    px-2 py-1 font-thin ring-1 ring-inset`}
           children={text}
     />
   )
