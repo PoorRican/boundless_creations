@@ -16,7 +16,7 @@ const Heading = () => {
 
     return (
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-gray-800">
+        <Disclosure as="nav" className="bg-indigo-800">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -39,7 +39,7 @@ const Heading = () => {
                               className={
                                 ({isActive}) => {
                                   const style = " rounded-md px-3 py-2 text-sm font-medium"
-                                  return isActive ? 'bg-gray-900 text-white' + style
+                                  return isActive ? 'bg-blue-800 text-white' + style
                                     : 'text-gray-300 hover:bg-gray-700 hover:text-white' + style
                                 }
                               }
@@ -76,7 +76,7 @@ const Heading = () => {
                         className={
                           ({isActive}) => {
                             const style = " rounded-md px-3 py-2 text-sm font-medium"
-                            return isActive ? 'bg-gray-900 text-white' + style
+                            return isActive ? 'bg-blue-800 text-white' + style
                               : 'text-gray-300 hover:bg-gray-700 hover:text-white' + style
                           }
                         }
