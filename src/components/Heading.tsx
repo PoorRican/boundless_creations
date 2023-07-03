@@ -1,9 +1,18 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from "react-router-dom";
-import { routes } from '../routes'
 
 const Heading = () => {
+  const routes = [
+    {
+      name: 'Home',
+      path: '/home',
+    },
+    {
+      name: 'Projects',
+      path: '/projects',
+    },
+  ];
 
     return (
       <div className="min-h-full">

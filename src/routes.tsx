@@ -7,36 +7,27 @@ import ErrorPage from "./pages/error-page";
 import Project from "./pages/Project";
 import {loader as projectLoader} from "./routes/projects"
 
-export interface Endpoint {
-  name: string;
-  path: string;
-  index?: boolean;
-  element: React.ReactNode;
-}
-
-export const routes: Endpoint[] = [
-  {
-    name: 'Home',
-    path: '/home',
-    index: true,
-    element: <Home/>
-  },
-  {
-    name: 'Projects',
-    path: '/projects',
-    element: <Projects />,
-  },
-];
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
-    errorElement: <ErrorPage/>,
-    children: routes
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/home',
+        index: true,
+        element: <Home/>
+      },
+      {
+        path: '/projects',
+        element: <Projects />,
+      },
+      {
+        path: "/project/:projectId",
+        element: <Project />,
+        loader: projectLoader,
+      }
+    ]
+
   },
-  {
-    path: "/project/:projectId",
-    element: <Project />,
-    loader: projectLoader,
-  }
 ]);
