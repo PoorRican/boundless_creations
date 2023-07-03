@@ -1,4 +1,4 @@
-import {Project, Status} from "../components/Project";
+import {Project} from "../components/Project";
 import projects from "../assets/projects.json"
 
 

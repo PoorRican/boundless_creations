@@ -3,10 +3,29 @@ import projects from "../assets/projects.json";
 import {Project} from "../components/Project";
 import Main from "../components/ContentWrapper";
 import {Link} from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import about_me from "../assets/about_me.md";
+import React from "react";
 
-const about_me: string = `
-This is a section about me
-`;
+const AboutMe = () => {
+  const [text, setText] = React.useState('');
+  fetch(about_me as string).then((value) => {
+    return value.text();
+  }).then((value) => {
+    setText(value);
+  });
+  return (
+    <div className="mt-6">
+      <ReactMarkdown
+        components={{
+          p: ({node, ...props}) => <p className="text-base mb-2 font-thin" {...props} />,
+          h1: ({node, ...props}) => <h1 className="text-2xl mb-2 font-thin" {...props} />
+        }}
+
+      >{text}</ReactMarkdown>
+    </div>
+  )
+}
 
 const Home = () => {
   return (
@@ -20,9 +39,7 @@ const Home = () => {
       <div className="grid md:grid-cols-2 gap-16">
         <div className="mt-1">
           <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
-          <div className="mt-4">
-            {about_me}
-          </div>
+          <AboutMe />
         </div>
 
         <div>
