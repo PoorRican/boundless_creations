@@ -3,11 +3,11 @@ import projects from "../assets/projects.json";
 import Main from "../components/ContentWrapper";
 import {Link} from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import about_me from "../assets/about_me.md";
+import about_me from "../assets/site_blurb.md";
 import React from "react";
 import ProjectSection from "../components/ProjectSection";
 
-const AboutMeBlurb = (props: {className?: string}) => {
+const Blurb = (props: {className?: string}) => {
   const [text, setText] = React.useState('');
   fetch(about_me as string).then((value) => {
     return value.text();
