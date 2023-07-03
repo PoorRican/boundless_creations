@@ -1,10 +1,9 @@
 [
   {
-    "id": "1",
-    "title": "Test Title",
-    "summary": "Testing lorem ipsum",
-    "status": 0,
-    "description": "This is a test",
+    "id": "sensd",
+    "title": "sensd",
+    "summary": "A control system and sensor logger for embedded systems. Built with Rust.",
+    "status": 2,
     "links": [
       {
         "name": "GitHub",
@@ -13,21 +12,63 @@
     ]
   },
   {
-    "id": "2",
-    "title": "Test Title 2",
-    "summary": "",
-    "status": 2
+    "id": "tradr",
+    "title": "tradr",
+    "summary": "An automated trading system. Built with Python.",
+    "status": 1,
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/PoorRican/tradr"
+      }
+    ]
   },
   {
-    "id": "3",
-    "title": "Test Title 3",
-    "summary": "",
-    "status": 1
+    "id": "ncbi-rs",
+    "title": "ncbi-rs",
+    "summary": "Rust tooling for fetching data from NCBI.",
+    "status": 0,
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/PoorRican/ncbi-rs"
+      }
+    ]
   },
   {
-    "id": "4",
-    "title": "Test Title 4",
-    "summary": "",
-    "status": 0
+    "id": "sbol-rs",
+    "title": "sbol-rs",
+    "summary": "Rust tooling for working with SBOLv3 data.",
+    "status": 0,
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/PoorRican/sbol"
+      }
+    ]
+  },
+  {
+    "id": "market_services",
+    "title": "market_services",
+    "summary": "Rust tooling for interacting with stock markets and crypto exchanges.",
+    "status": 0,
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/PoorRican/sbol"
+      }
+    ]
+  },
+  {
+    "id": "react-biosequence",
+    "title": "react-biosequence",
+    "summary": "React component for interacting with biological molecules such as DNA, RNA, and amino acids.",
+    "status": 0,
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/PoorRican/sbol"
+      }
+    ]
   }
 ]
