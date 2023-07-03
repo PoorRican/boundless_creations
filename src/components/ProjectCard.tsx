@@ -2,11 +2,12 @@ import Card from "./Card";
 import {Status, StatusBadge} from "./StatusBadge";
 
 export interface ProjectIface {
-    title: string;
-    description: string;
-    status: Status;
-    url?: string;
-    key?: number;
+  id: string,
+  title: string;
+  description: string;
+  status: Status;
+  url?: string;
+  key?: number;
 }
 
 export const ProjectCard = (props: ProjectIface) => {
