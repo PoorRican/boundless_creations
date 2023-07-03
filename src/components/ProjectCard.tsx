@@ -33,7 +33,7 @@ export interface ProjectIface {
     key?: number;
 }
 
-export const Project = (props: ProjectIface) => {
+export const ProjectCard = (props: ProjectIface) => {
     return (
       <a href={props.url ? props.url : "#"}>
         <Card className="h-40 bg-slate-100 hover:bg-white" >

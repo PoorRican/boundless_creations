@@ -1,4 +1,4 @@
-import {Project, ProjectIface} from "./Project";
+import {ProjectCard, ProjectIface} from "./ProjectCard";
 import React from "react";
 
 const ProjectSection = (props: {className?: string, projects: ProjectIface[]}) => {
@@ -7,7 +7,7 @@ const ProjectSection = (props: {className?: string, projects: ProjectIface[]}) =
       {props.projects.map(({title, description, status}) => {
         return (
           <li key={title}>
-            <Project title={title} description={description} status={status} />
+            <ProjectCard title={title} description={description} status={status} />
           </li>
         )
       })}
