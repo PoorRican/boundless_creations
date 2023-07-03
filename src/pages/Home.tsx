@@ -19,7 +19,8 @@ const Blurb = (props: {className?: string}) => {
       <ReactMarkdown
         components={{
           p: ({node, ...props}) => <p className="text-base mb-2 font-thin" {...props} />,
-          h1: ({node, ...props}) => <h1 className="text-2xl mb-2 font-thin" {...props} />
+          // eslint-disable-next-line jsx-a11y/heading-has-content
+          "h1": ({node, ...props}) => <h1 className="text-2xl mb-2 font-thin" {...props} />
         }}
 
       >{text}</ReactMarkdown>
