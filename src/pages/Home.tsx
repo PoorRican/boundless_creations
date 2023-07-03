@@ -1,11 +1,11 @@
 import ContactSection from "../components/ContactSection";
 import projects from "../assets/projects.json";
-import {Project} from "../components/Project";
 import Main from "../components/ContentWrapper";
 import {Link} from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import about_me from "../assets/about_me.md";
 import React from "react";
+import ProjectSection from "../components/ProjectSection";
 
 const AboutMeBlurb = (props: {className?: string}) => {
   const [text, setText] = React.useState('');
@@ -49,15 +49,7 @@ const Home = () => {
             </Link>
 
           </h2>
-          <ul className="grid md:grid-cols-2 gap-4">
-            {projects.slice(0, 2).map(({title, description, status}) => {
-              return (
-                <li key={title}>
-                  <Project title={title} description={description} status={status} />
-                </li>
-              )
-            })}
-          </ul>
+          <ProjectSection projects={projects.slice(0, 3)} />
         </div>
       </div>
     </Main>

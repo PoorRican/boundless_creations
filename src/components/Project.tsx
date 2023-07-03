@@ -25,7 +25,7 @@ const StatusBadge = (props: {status: Status}) => {
   )
 }
 
-interface ProjectIface {
+export interface ProjectIface {
     title: string;
     description: string;
     status: Status;
