@@ -1,6 +1,11 @@
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import React from "react";
+import {createBrowserRouter} from "react-router-dom";
+import Root from "./components/Root";
+import ErrorPage from "./pages/error-page";
+import Project from "./pages/Project";
+import {loader as projectLoader} from "./routes/projects"
 
 export interface Endpoint {
   name: string;
@@ -9,7 +14,7 @@ export interface Endpoint {
   element: React.ReactNode;
 }
 
-const routes: Endpoint[] = [
+export const routes: Endpoint[] = [
   {
     name: 'Home',
     path: '/home',
@@ -19,7 +24,19 @@ const routes: Endpoint[] = [
   {
     name: 'Projects',
     path: '/projects',
-    element: <Projects/>
+    element: <Projects />,
   },
 ];
-export default routes;
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root/>,
+    errorElement: <ErrorPage/>,
+    children: routes
+  },
+  {
+    path: "/project/:projectId",
+    element: <Project />,
+    loader: projectLoader,
+  }
+]);
