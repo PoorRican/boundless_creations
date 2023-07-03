@@ -10,9 +10,10 @@ export interface ProjectLinkIface {
 export interface ProjectIface {
   id: string,
   title: string;
-  description: string;
+  summary: string;
+  description?: string;
   status: Status;
-  links?: ProjectLinkIface[]
+  links?: ProjectLinkIface[];
 }
 
 export const ProjectCard = (props: ProjectIface) => {
@@ -27,7 +28,7 @@ export const ProjectCard = (props: ProjectIface) => {
           <StatusBadge status={props.status} className={"text-xs"} />
 
           <p className={"mt-2 overflow-ellipsis text-sm text-slate-800 font-thin"}
-             children={props.description} />
+             children={props.summary} />
         </Card>
       </Link>
     )

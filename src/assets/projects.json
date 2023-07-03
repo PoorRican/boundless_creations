@@ -2,8 +2,9 @@
   {
     "id": "1",
     "title": "Test Title",
-    "description": "Testing lorem ipsum",
+    "summary": "Testing lorem ipsum",
     "status": 0,
+    "description": "This is a test",
     "links": [
       {
         "name": "GitHub",
@@ -14,19 +15,19 @@
   {
     "id": "2",
     "title": "Test Title 2",
-    "description": "",
+    "summary": "",
     "status": 2
   },
   {
     "id": "3",
     "title": "Test Title 3",
-    "description": "",
+    "summary": "",
     "status": 1
   },
   {
     "id": "4",
     "title": "Test Title 4",
-    "description": "",
+    "summary": "",
     "status": 0
   }
 ]
