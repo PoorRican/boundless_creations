@@ -52,7 +52,7 @@ const InterestsSection = (props: {className?: string}) => {
 const Home = () => {
   return (
     <Main>
-      <h1 className="mt-16 mb-8 text-4xl font-thin">
+      <h1 className="mb-8 text-4xl font-thin">
         <span className="border-b border-slate-600 pr-4 pb-2">
           Josué Figueroa
         </span>
