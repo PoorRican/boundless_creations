@@ -38,7 +38,7 @@
   {
     "id": "sbol-rs",
     "title": "sbol-rs",
-    "summary": "Rust tooling for working with SBOLv3 data.",
+    "summary": "Rust tooling for working with Synthetic Biology Open Language (SBOL) data.",
     "status": 0,
     "links": [
       {
@@ -62,7 +62,7 @@
   {
     "id": "react-biosequence",
     "title": "react-biosequence",
-    "summary": "React component for interacting with biological molecules such as DNA, RNA, and amino acids.",
+    "summary": "React UI components for interacting with biological molecules such as DNA, RNA, and amino acids.",
     "status": 0,
     "links": [
       {
