@@ -7,7 +7,7 @@ import {add_project_images} from "../helpers";
 const Projects = () => {
     return (
       <ContentWrapper>
-        <h1 className={"mt-16 mb-12 text-2xl"}>Projects</h1>
+        <h1 className={"mb-12 text-4xl font-thin"}>Projects</h1>
 
         <ProjectSection projects={add_project_images(projects)} className={""} />
       </ContentWrapper>
