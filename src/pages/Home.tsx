@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import site_blurb from "../assets/site_blurb.json";
 import React from "react";
 import ProjectSection from "../components/ProjectSection";
+import {add_project_images} from "../helpers";
 
 const Blurb = (props: {className?: string}) => {
   return (
@@ -61,7 +62,7 @@ const Home = () => {
         </div>
 
         <div className="md:col-start-1 md:col-end-3">
-          <h2 className="text-2xl font-thin ml-2 mb-4">
+          <h2 className="text-2xl font-thin ml-2 mb-12">
             Recent Projects:
 
             <Link to={'/projects'}>
@@ -69,7 +70,7 @@ const Home = () => {
             </Link>
 
           </h2>
-          <ProjectSection projects={projects.slice(0, 3)} />
+          <ProjectSection projects={add_project_images(projects.slice(0, 3))} />
         </div>
       </div>
     </ContentWrapper>
