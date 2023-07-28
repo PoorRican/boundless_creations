@@ -43,7 +43,7 @@ jobs:
           environment_name: boundless-creation-site-dev
           version_label: "boundless-${{ steps.format-time.outputs.replaced }}"
           region: us-west-1
-          deployment_package: boundless.zip
+          deployment_package: "boundless-${{ steps.format-time.outputs.replaced }}.zip"
 
       - name: Deployed!
         run: echo App deployed to ELB
