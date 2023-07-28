@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import {RouterProvider} from "react-router-dom";
 import {router} from "./routes";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-9KK18Z3T75");
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
