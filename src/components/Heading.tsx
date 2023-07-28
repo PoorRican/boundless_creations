@@ -23,11 +23,11 @@ const Heading = () => {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company"
-                      />
+                      <div className={"leading-none font-mono text-xs subpixel-antialiased text-yellow-400 whitespace-pre "}>
+                        <p>{`┏━┓┳━┓┳━┓┳━┓┏┓┓o┏━┓┏┓┓`}</p>
+                        <p>{`┃  ┃┳┛┣━ ┃━┫ ┃ ┃┃ ┃┃┃┃`}</p>
+                        <p>{`┗━┛┇┗┛┻━┛┛ ┇ ┇ ┇┛━┛┇┗┛`}</p>
+                      </div>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
