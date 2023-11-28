@@ -19,16 +19,20 @@ const Heading = () => {
 
             {/* title */}
             <div className={"mt-8"}>
-              <div className={"leading-none font-mono text-sm md:leading-none md:text-lg subpixel-antialiased text-yellow-400 whitespace-pre "}>
+              <div className={"leading-none font-mono text-sm md:leading-none md:text-lg subpixel-antialiased text-yellow-400 whitespace-pre overflow-hidden"}>
                 <p>{`  ┳┏━┓┓━┓┳ ┓┳━┓  ┳━┓o┏━┓┳ ┓┳━┓┳━┓┏━┓┳━┓`}</p>
                 <p>{`┏ ┃┃ ┃┗━┓┃ ┃┣━   ┣━ ┃┃ ┳┃ ┃┣━ ┃┳┛┃ ┃┃━┫`}</p>
                 <p>{`┗━┇┛━┛━━┛┇━┛┻━┛  ┇  ┇┇━┛┇━┛┻━┛┇┗┛┛━┛┛ ┇`}</p>
               </div>
             </div>
 
+            <span className={"mt-2 md:mt-4 text-cyan-300"}>
+              Full Stack AI Developer
+            </span>
+
             {/* links */}
             <div>
-              <div className="my-6 flex items-baseline space-x-4">
+              <div className="my-4 flex items-baseline space-x-4">
                 {routes.map(({path, name}) => {
                   return (
                     <NavLink
