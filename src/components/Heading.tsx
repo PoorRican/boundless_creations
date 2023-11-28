@@ -19,10 +19,10 @@ const Heading = () => {
 
             {/* title */}
             <div className={"mt-8"}>
-              <div className={"leading-none font-mono text-xs md:leading-none md:text-lg subpixel-antialiased text-yellow-400 whitespace-pre "}>
-                <p>{`┏━┓┳━┓┳━┓┳━┓┏┓┓o┏━┓┏┓┓`}</p>
-                <p>{`┃  ┃┳┛┣━ ┃━┫ ┃ ┃┃ ┃┃┃┃`}</p>
-                <p>{`┗━┛┇┗┛┻━┛┛ ┇ ┇ ┇┛━┛┇┗┛`}</p>
+              <div className={"leading-none font-mono text-sm md:leading-none md:text-lg subpixel-antialiased text-yellow-400 whitespace-pre "}>
+                <p>{`  ┳┏━┓┓━┓┳ ┓┳━┓  ┳━┓o┏━┓┳ ┓┳━┓┳━┓┏━┓┳━┓`}</p>
+                <p>{`┏ ┃┃ ┃┗━┓┃ ┃┣━   ┣━ ┃┃ ┳┃ ┃┣━ ┃┳┛┃ ┃┃━┫`}</p>
+                <p>{`┗━┇┛━┛━━┛┇━┛┻━┛  ┇  ┇┇━┛┇━┛┻━┛┇┗┛┛━┛┛ ┇`}</p>
               </div>
             </div>
 
