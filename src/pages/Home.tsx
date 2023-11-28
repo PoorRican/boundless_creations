@@ -25,13 +25,16 @@ const Blurb = (props: {className?: string}) => {
 
 const InterestsSection = (props: {className?: string}) => {
   const interests = [
-    "Synthetic biology",
+    "AI Agents",
+    "Machine Learning",
     "Science Fiction",
-    "Rust",
     "Python",
+    "Rust",
+    "Synthetic biology",
     "Biohacking",
     "Jesus",
     "BJJ",
+    "InfoSec",
     "Digital Art"
   ];
   return (
@@ -47,11 +50,6 @@ const InterestsSection = (props: {className?: string}) => {
 const Home = () => {
   return (
     <ContentWrapper>
-      <h1 className="mb-8 text-4xl font-thin">
-        <span className="border-b border-slate-600 pr-4 pb-2">
-          Josué Figueroa
-        </span>
-      </h1>
 
       <div className="grid md:grid-cols-2 gap-8 md:gap-16">
         <Blurb />
