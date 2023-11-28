@@ -47,11 +47,6 @@ const InterestsSection = (props: {className?: string}) => {
 const Home = () => {
   return (
     <ContentWrapper>
-      <h1 className="mb-8 text-4xl font-thin">
-        <span className="border-b border-slate-600 pr-4 pb-2">
-          Josué Figueroa
-        </span>
-      </h1>
 
       <div className="grid md:grid-cols-2 gap-8 md:gap-16">
         <Blurb />
