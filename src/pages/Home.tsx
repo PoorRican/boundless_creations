@@ -25,13 +25,16 @@ const Blurb = (props: {className?: string}) => {
 
 const InterestsSection = (props: {className?: string}) => {
   const interests = [
-    "Synthetic biology",
+    "AI Agents",
+    "Machine Learning",
     "Science Fiction",
-    "Rust",
     "Python",
+    "Rust",
+    "Synthetic biology",
     "Biohacking",
     "Jesus",
     "BJJ",
+    "InfoSec",
     "Digital Art"
   ];
   return (
