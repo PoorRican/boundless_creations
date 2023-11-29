@@ -12,7 +12,7 @@
         "url": "https://github.com/PoorRican/sensd"
       }
     ],
-    "photo": ""
+    "photo": "sensd.png"
   },
   {
     "id": "tradr",
@@ -27,7 +27,7 @@
         "url": "https://github.com/PoorRican/tradr"
       }
     ],
-    "photo": ""
+    "photo": "tradr.png"
   },
   {
     "id": "ncbi-rs",
@@ -42,7 +42,7 @@
         "url": "https://github.com/PoorRican/ncbi-rs"
       }
     ],
-    "photo": ""
+    "photo": "ncbi.png"
   },
   {
     "id": "sbol-rs",
@@ -57,7 +57,7 @@
         "url": "https://github.com/PoorRican/sbol"
       }
     ],
-    "photo": ""
+    "photo": "sbol.png"
   },
   {
     "id": "market_services",
@@ -72,7 +72,7 @@
         "url": "https://github.com/PoorRican/sbol"
       }
     ],
-    "photo": ""
+    "photo": "market_services.png"
   },
   {
     "id": "react-biosequence",
@@ -87,6 +87,6 @@
         "url": "https://github.com/PoorRican/sbol"
       }
     ],
-    "photo": ""
+    "photo": "react-biosequence.png"
   }
 ]
