@@ -137,6 +137,65 @@ class ProjectManager(object):
         project.edit_summary()
         self.save_all()
 
+    def new_project(self):
+        """ Creates a new project via user input
+
+        Data is automatically saved to JSON after editing.
+        """
+        # prompt user for project id
+        _id = input("Project ID: ")
+
+        # check if project id already exists
+        try:
+            self.get_project(_id)
+            print(f'Project with id {_id} already exists')
+            return
+        except KeyError:
+            pass
+
+        # prompt user for project title
+        title = input("Project Title: ")
+
+        # prompt user for project summary
+        summary = input("Project Summary: ")
+
+        # prompt user for project description
+        _ = input("Press any key to enter description...")
+        description = edit_markdown()
+
+        # prompt user for project tags
+        _ = input("Press any key to enter tags...")
+        tags = edit_list([])
+
+        # prompt user for project status
+        status = input("Project Status ('in progress', 'as is', 'active'): ").lower()
+        if status == 'in progress':
+            status = Status.IN_PROGRESS
+        elif status == 'as is':
+            status = Status.AS_IS
+        elif status == 'active':
+            status = Status.ACTIVE
+
+        # prompt user for project links
+        gh_link = input("GitHub Link: ")
+        links = [Link(name='GitHub', url=gh_link)]
+
+        # prompt user for project photo
+        photo = input("Photo: ")
+
+        project = Project(
+            id=_id,
+            title=title,
+            summary=summary,
+            description=description,
+            status=status,
+            links=links,
+            photo=photo,
+            tags=tags
+        )
+        self.projects.append(project)
+        self.save_all()
+
 
 def edit_markdown(text: Optional[str] = '') -> str:
     """ Edits Markdown text using neovim.
