@@ -107,9 +107,7 @@ class ProjectManager(object):
         for p in self.projects:
             if p.id == k:
                 return p
-        print(f'{k} does not exist in {self.FILENAME}')
-        print('Available projects:')
-        self.list_projects()
+        raise KeyError(f'{k} does not exist in {self.FILENAME}')
 
     def edit_description(self, k: str):
         """ Edits the description of a project as markdown
