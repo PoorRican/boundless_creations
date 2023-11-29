@@ -11,11 +11,73 @@ Nvim is the default program for editing files.
 """
 
 import json
+from enum import IntEnum
 from os.path import join
 import string, subprocess, random
+from typing import Optional
+
+from pydantic import BaseModel
 
 
-def get_project(k: str, fn: str) -> dict:
+class Link(BaseModel):
+    name: str
+    url: str
+
+
+class Status(IntEnum):
+    """ Represents the status of a project
+
+    Corresponds to the enum defined in `src/components/StatusBadge.tsx`
+    """
+    IN_PROGRESS = 0
+    AS_IS = 1
+    ACTIVE = 2
+
+
+class Project(BaseModel):
+    """ Represents a project
+
+    This is used for parsing and writing to the "projects.json" file
+    """
+    id: str
+    title: str
+    summary: str
+    description: Optional[str] = None
+    tags: Optional[list[str]] = None
+    status: Status
+    links: list[Link]
+    image: Optional[str] = None
+
+
+def load_all_projects(fn: str) -> list[Project]:
+    """ Loads all projects from JSON
+
+    Arguments
+    =========
+    fn: path to json file
+
+    Returns
+    =======
+    list[Project]: list of projects
+    """
+    with open(fn, 'r') as f:
+        projects = json.load(f)
+    return [Project(**p) for p in projects]
+
+
+def save_all_projects(projects: list[Project], fn: str):
+    """ Saves all projects to JSON
+
+    Arguments
+    =========
+    projects: list of projects
+    fn: path to json file
+    """
+    with open(fn, 'w') as f:
+        json.dump([p.model_dump_json() for p in projects], f, indent=2)
+
+
+def get_project(k: str, fn: str) -> Project:
     """ Fetches project from JSON
 
     Arguments
@@ -27,24 +89,36 @@ def get_project(k: str, fn: str) -> dict:
     =======
     dict: project as dict
     """
-    with open(fn, 'r') as f:
-        projects = json.load(f)
-        for p in projects:
-            if p['id'] == k:
-                return p
+    projects = load_all_projects(fn)
+    for p in projects:
+        if p.id == k:
+            return p
     print(f'{k} does not exist in {fn}')
 
-def update_field(k: str, attr: str, val: str, fn: str):
-    with open(fn, 'r') as f:
-        projects = json.load(f)
-    for p in projects:
-        if p['id'] == k:
-            p[attr] = val
-    with open(fn, 'w') as f:
-        json.dump(projects, f, indent=2)
 
-def edit_tmp(text: str) -> str:
-    """ Edits Markdown text using neovim
+def update_field(k: str, attr: str, val: str, fn: str):
+    """ Updates a field in a project
+
+    Parameters
+    ----------
+    k: project id
+    attr: attribute to update
+    val: new value
+    fn: path to json file
+    """
+    projects = load_all_projects(fn)
+    for p in projects:
+        if p.id == k:
+            setattr(p, attr, val)
+    save_all_projects(projects, fn)
+
+
+def edit_markdown(text: str) -> str:
+    """ Edits Markdown text using neovim.
+
+    The given text is written to a temporary file, which is then opened in
+    neovim. The user can edit the text in neovim, and the updated text is
+    returned.
 
     Arguments
     =========
@@ -61,12 +135,12 @@ def edit_tmp(text: str) -> str:
         f.write(text)
 
     # edit temp file
-    val = subprocess.run(['nvim', path])
-    print(val)
+    subprocess.run(['nvim', path])
 
     # read edited file
     with open(path, 'r') as f:
         return f.read()
+
 
 if __name__ == "__main__":
     import sys
@@ -85,5 +159,5 @@ if __name__ == "__main__":
     except KeyError:
         description = ''
 
-    description = edit_tmp(description)
+    description = edit_markdown(description)
     update_field(key, attribute, description, file)
