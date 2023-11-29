@@ -3,72 +3,90 @@
     "id": "sensd",
     "title": "sensd",
     "summary": "A control system and sensor logger for embedded systems. Built with Rust.",
+    "description": "",
+    "tags": null,
     "status": 2,
     "links": [
       {
         "name": "GitHub",
         "url": "https://github.com/PoorRican/sensd"
       }
-    ]
+    ],
+    "photo": ""
   },
   {
     "id": "tradr",
     "title": "tradr",
     "summary": "An automated trading system. Built with Python.",
+    "description": "",
+    "tags": null,
     "status": 1,
     "links": [
       {
         "name": "GitHub",
         "url": "https://github.com/PoorRican/tradr"
       }
-    ]
+    ],
+    "photo": ""
   },
   {
     "id": "ncbi-rs",
     "title": "ncbi-rs",
     "summary": "Rust tooling for fetching data from NCBI.",
+    "description": "",
+    "tags": null,
     "status": 0,
     "links": [
       {
         "name": "GitHub",
         "url": "https://github.com/PoorRican/ncbi-rs"
       }
-    ]
+    ],
+    "photo": ""
   },
   {
     "id": "sbol-rs",
     "title": "sbol-rs",
     "summary": "Rust tooling for working with Synthetic Biology Open Language (SBOL) data.",
+    "description": "",
+    "tags": null,
     "status": 0,
     "links": [
       {
         "name": "GitHub",
         "url": "https://github.com/PoorRican/sbol"
       }
-    ]
+    ],
+    "photo": ""
   },
   {
     "id": "market_services",
     "title": "market_services",
     "summary": "Rust tooling for interacting with stock markets and crypto exchanges.",
+    "description": "",
+    "tags": null,
     "status": 0,
     "links": [
       {
         "name": "GitHub",
         "url": "https://github.com/PoorRican/sbol"
       }
-    ]
+    ],
+    "photo": ""
   },
   {
     "id": "react-biosequence",
     "title": "react-biosequence",
     "summary": "React UI components for interacting with biological molecules such as DNA, RNA, and amino acids.",
+    "description": "",
+    "tags": null,
     "status": 0,
     "links": [
       {
         "name": "GitHub",
         "url": "https://github.com/PoorRican/sbol"
       }
-    ]
+    ],
+    "photo": ""
   }
 ]

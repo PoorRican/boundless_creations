@@ -14,7 +14,8 @@ import json
 from enum import IntEnum
 from os.path import join
 import string, subprocess, random
-from typing import Optional
+import tempfile
+from typing import Optional, ClassVar
 
 from pydantic import BaseModel
 
@@ -42,78 +43,102 @@ class Project(BaseModel):
     id: str
     title: str
     summary: str
-    description: Optional[str] = None
+    description: str = ''
     tags: Optional[list[str]] = None
     status: Status
     links: list[Link]
-    image: Optional[str] = None
+    photo: str = ''
+
+    def edit_description(self):
+        self.description = edit_markdown(self.description)
+
+    def edit_summary(self):
+        self.summary = edit_markdown(self.summary)
 
 
-def load_all_projects(fn: str) -> list[Project]:
-    """ Loads all projects from JSON
+class ProjectManager(object):
+    """ Wrapper for managing projects
 
-    Arguments
-    =========
-    fn: path to json file
-
-    Returns
-    =======
-    list[Project]: list of projects
+    Contains methods for loading, saving, and updating projects.
     """
-    with open(fn, 'r') as f:
-        projects = json.load(f)
-    return [Project(**p) for p in projects]
+    FILENAME: ClassVar[str] = "src/assets/projects.json"
+    projects: list[Project]
+
+    def __init__(self, fn: str = FILENAME):
+        self.load_all(fn)
+
+    def load_all(self, fn: Optional[str] = FILENAME):
+        """ Loads all projects from JSON
+
+        Arguments
+        =========
+        fn: path to json file
+        """
+        with open(fn, 'r') as f:
+            projects = json.load(f)
+        self.projects = [Project(**p) for p in projects]
+
+    def save_all(self, fn: Optional[str] = FILENAME):
+        """ Saves all projects to JSON
+
+        Arguments
+        =========
+        fn: path to json file
+        """
+        with open(fn, 'w') as f:
+            json.dump([p.model_dump() for p in self.projects], f, indent=2)
+
+    def list_projects(self):
+        """ Prints a list of all projects """
+        for p in self.projects:
+            print(p.id)
+
+    def get_project(self, k: str) -> Project:
+        """ Fetches project from JSON
+
+        Arguments
+        =========
+        k: project id
+
+        Returns
+        =======
+        dict: project as dict
+        """
+        for p in self.projects:
+            if p.id == k:
+                return p
+        print(f'{k} does not exist in {self.FILENAME}')
+        print('Available projects:')
+        self.list_projects()
+
+    def edit_description(self, k: str):
+        """ Edits the description of a project as markdown
+
+        Data is automatically saved to JSON after editing.
+
+        Arguments
+        =========
+        k: project id
+        """
+        project = self.get_project(k)
+        project.edit_description()
+        self.save_all()
+
+    def edit_summary(self, k: str):
+        """ Edits the summary of a project as markdown
+
+        Data is automatically saved to JSON after editing.
+
+        Arguments
+        =========
+        k: project id
+        """
+        project = self.get_project(k)
+        project.edit_summary()
+        self.save_all()
 
 
-def save_all_projects(projects: list[Project], fn: str):
-    """ Saves all projects to JSON
-
-    Arguments
-    =========
-    projects: list of projects
-    fn: path to json file
-    """
-    with open(fn, 'w') as f:
-        json.dump([p.model_dump_json() for p in projects], f, indent=2)
-
-
-def get_project(k: str, fn: str) -> Project:
-    """ Fetches project from JSON
-
-    Arguments
-    =========
-    k: project id
-    fn: path to json file
-
-    Returns
-    =======
-    dict: project as dict
-    """
-    projects = load_all_projects(fn)
-    for p in projects:
-        if p.id == k:
-            return p
-    print(f'{k} does not exist in {fn}')
-
-
-def update_field(k: str, attr: str, val: str, fn: str):
-    """ Updates a field in a project
-
-    Parameters
-    ----------
-    k: project id
-    attr: attribute to update
-    val: new value
-    fn: path to json file
-    """
-    projects = load_all_projects(fn)
-    for p in projects:
-        if p.id == k:
-            setattr(p, attr, val)
-    save_all_projects(projects, fn)
-
-
-def edit_markdown(text: str) -> str:
+def edit_markdown(text: Optional[str] = '') -> str:
     """ Edits Markdown text using neovim.
 
     The given text is written to a temporary file, which is then opened in
@@ -122,7 +147,7 @@ def edit_markdown(text: str) -> str:
 
     Arguments
     =========
-    text: text to edit
+    text: text to edit. If None, an empty string is used.
 
     Returns
     =======
@@ -130,7 +155,8 @@ def edit_markdown(text: str) -> str:
     """
     # create temp file
     fn = ''.join(random.choice(string.ascii_lowercase) for _ in range(4)) + '.md'
-    path = join('/tmp', fn)
+    tmp_dir = tempfile.gettempdir()
+    path = join(tmp_dir, fn)
     with open(path, 'w') as f:
         f.write(text)
 
@@ -139,25 +165,17 @@ def edit_markdown(text: str) -> str:
 
     # read edited file
     with open(path, 'r') as f:
-        return f.read()
+        return f.read().strip()
 
 
 if __name__ == "__main__":
     import sys
-    file = "src/assets/projects.json"
 
     key = sys.argv[1]
     if key is None:
         print("Project must be passed as argument")
         exit(1)
 
-    attribute = 'description'
-    project = get_project(key, file)
-    print(project)
-    try:
-        description = project[attribute]
-    except KeyError:
-        description = ''
+    manager = ProjectManager()
 
-    description = edit_markdown(description)
-    update_field(key, attribute, description, file)
+    manager.edit_summary(key)
