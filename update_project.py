@@ -168,6 +168,39 @@ def edit_markdown(text: Optional[str] = '') -> str:
         return f.read().strip()
 
 
+def edit_list(items: Optional[list[str]] = None) -> list[str]:
+    """ Edits a list of strings using neovim.
+
+    The given list is written to a temporary file, which is then opened in
+    neovim. The user can edit the list in neovim, and the updated list is
+    returned.
+
+    Arguments
+    =========
+    items: list of strings to edit
+
+    Returns
+    =======
+    list[str]: edited list
+    """
+    if items is None:
+        items = []
+
+    # create temp file
+    fn = ''.join(random.choice(string.ascii_lowercase) for _ in range(4)) + '.md'
+    tmp_dir = tempfile.gettempdir()
+    path = join(tmp_dir, fn)
+    with open(path, 'w') as f:
+        f.write('\n'.join(items))
+
+    # edit temp file
+    subprocess.run(['nvim', path])
+
+    # read edited file
+    with open(path, 'r') as f:
+        return f.read().strip().split('\n')
+
+
 if __name__ == "__main__":
     import sys
 
