@@ -28,7 +28,7 @@ const Heading = () => {
             </div>
 
             <span className={"mt-2 md:mt-4 text-cyan-300"}>
-              Full Stack AI Developer
+              Full Stack AI Engineer
             </span>
 
             {/* links */}
