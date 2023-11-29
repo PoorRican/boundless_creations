@@ -20,8 +20,7 @@ const Home = () => {
         <Blurb />
 
         <div className={"flex flex-col gap-8"}>
-          <ContactSection className="ring-1 h-40 p-6 rounded-xl" />
-          <InterestsSection className={"ring-1 rounded-xl p-6"}/>
+          <ContactSection className="ring-1 p-6 rounded-xl" />
         </div>
 
         <div className="md:col-start-1 md:col-end-3">
