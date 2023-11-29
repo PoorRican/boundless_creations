@@ -3,7 +3,7 @@ import {StatusBadge} from "../components/StatusBadge";
 import {useLoaderData} from "react-router-dom";
 import {ProjectLinkIface} from "../components/ProjectCard";
 import ReactMarkdown from "react-markdown";
-import React from "react";
+import React, {useEffect} from "react";
 
 const ProjectLink = (props: ProjectLinkIface) => {
   return (
@@ -66,6 +66,11 @@ const Description = (props: {description: string}) => {
 
 const Project = () => {
   const project: any = useLoaderData();
+
+  useEffect(() => {
+    document.title = `${project.title} | Project | Josué Figueroa`;
+  }, []);
+
 
   return (
     <ContentWrapper>

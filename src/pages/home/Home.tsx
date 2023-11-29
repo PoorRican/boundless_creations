@@ -2,13 +2,18 @@ import ContactSection from "../../components/ContactSection";
 import projects from "../../assets/projects.json";
 import ContentWrapper from "../../components/ContentWrapper";
 import {Link} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 import ProjectSection from "../../components/ProjectSection";
 import {add_project_images} from "../../helpers";
 import {Blurb} from "./components/Blurb";
 import {InterestsSection} from "./components/InterestsSection";
 
 const Home = () => {
+
+  useEffect(() => {
+    document.title = 'Home | Josué Figueroa';
+  }, []);
+
   return (
     <ContentWrapper>
 
