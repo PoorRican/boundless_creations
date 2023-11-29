@@ -1,10 +1,13 @@
 import {useEffect} from "react";
-import projects from "../assets/projects.json"
-import ProjectSection from "../components/ProjectSection";
-import ContentWrapper from "../components/ContentWrapper";
-import {add_project_images} from "../helpers";
+import projects from "../../assets/projects.json"
+import ProjectSection from "../../components/ProjectSection";
+import ContentWrapper from "../../components/ContentWrapper";
+import {add_project_images} from "../../helpers";
 
 
+/**
+ * This is the Projects listing page.
+ */
 const Projects = () => {
 
   useEffect(() => {
