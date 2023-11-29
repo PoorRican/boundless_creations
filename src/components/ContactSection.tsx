@@ -33,17 +33,33 @@ const ContactLink = (props: Site) => {
 }
 
 export default function ContactSection(props: { className: string }) {
+  const upwork_direct_contract = 'https://www.upwork.com/workwith/josuefigueroa'
   return (
     <section className={`${props.className} hover:bg-slate-900`}>
-      <div className="inline-flex flex-row w-fit h-fit gap-4">
+      <div className="inline-flex flex-row w-fit gap-4">
         <ProfilePic className="inline h-28"/>
-        <div className="">
-          <span className="border-slate-700 border-b border-dashed text-md pb-1 pr-1 font-thin">
-            Catch me online:
-          </span>
-          <ul className="flex flex-row flex-wrap gap-2 mt-4">
-            {contact_links.map(({name, url, icon}) => <ContactLink name={name} url={url} key={url} icon={icon}/>)}
-          </ul>
+        <div className="flex flex-col">
+
+          <div>
+            <span className="border-slate-700 border-b border-dashed text-md pb-1 pr-1 font-thin">
+              Catch me online:
+            </span>
+            <ul className="flex flex-row flex-wrap gap-2 mt-4">
+              {contact_links.map(({name, url, icon}) => <ContactLink name={name} url={url} key={url} icon={icon}/>)}
+            </ul>
+          </div>
+
+          <div className={"mt-4"}>
+            <a href={upwork_direct_contract} className={"border-slate-700 border-b border-dashed"}>
+              <span className="text-md pb-1 pr-1 font-thin">
+                Or hire me on
+              </span>
+              <span className={"text-green-500 border-green-900 border-b border-dashed"}>
+                Upwork
+              </span>
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
