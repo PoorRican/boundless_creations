@@ -259,13 +259,30 @@ def edit_list(items: Optional[list[str]] = None) -> list[str]:
 
 
 if __name__ == "__main__":
-    import sys
-
-    key = sys.argv[1]
-    if key is None:
-        print("Project must be passed as argument")
-        exit(1)
+    from sys import argv, exit
 
     manager = ProjectManager()
 
-    manager.edit_summary(key)
+    mode = argv[1]
+    if mode == 'new':
+        manager.new_project()
+        print('New project created!')
+        exit(0)
+    elif mode == 'list':
+        manager.list_projects()
+        exit(0)
+    elif mode == 'edit':
+        attr = argv[2]
+        if attr not in ('description', 'summary'):
+            print(f"Invalid attribute {attr}. Must be ('description', 'summary')")
+            exit(1)
+
+        project_id = argv[3]
+        if project_id is None:
+            print("Project must be passed as argument")
+            exit(1)
+
+        if attr == 'description':
+            manager.edit_description(project_id)
+        elif attr == 'summary':
+            manager.edit_summary(project_id)
