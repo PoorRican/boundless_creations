@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import site_blurb from "./site_blurb.json";
+import intro_blurb from "./intro_blurb.json";
 import React from "react";
 
 /**
@@ -19,7 +19,7 @@ export const Blurb = (props: { className?: string }) => {
           "h1": ({node, ...props}) => <h1 className="text-2xl mb-2 font-thin" {...props} />
         }}
 
-      >{site_blurb}</ReactMarkdown>
+      >{intro_blurb}</ReactMarkdown>
     </div>
   )
 }

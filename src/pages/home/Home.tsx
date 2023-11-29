@@ -4,7 +4,6 @@ import ContentWrapper from "../../components/ContentWrapper";
 import {Link} from "react-router-dom";
 import React, {useEffect} from "react";
 import ProjectSection from "../../components/ProjectSection";
-import {add_project_images} from "../../helpers";
 import {Blurb} from "./components/Blurb";
 import {InterestsSection} from "./components/InterestsSection";
 
@@ -34,7 +33,7 @@ const Home = () => {
             </Link>
 
           </h2>
-          <ProjectSection projects={add_project_images(projects.slice(0, 3))} />
+          <ProjectSection projects={projects.slice(0, 3)} />
         </div>
       </div>
     </ContentWrapper>
