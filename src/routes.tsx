@@ -1,5 +1,6 @@
 import Home from "./pages/home/Home";
 import Projects from "./pages/projects/Projects";
+import About from "./pages/about/About";
 import React from "react";
 import {createBrowserRouter, redirect} from "react-router-dom";
 import Root from "./components/Root";
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
         path: "/project/:projectId",
         element: <Project />,
         loader: projectLoader,
+      },
+      {
+        path: '/about',
+        element: <About />,
       }
     ]
   },

@@ -10,6 +10,10 @@ const Heading = () => {
       name: 'Projects',
       path: '/projects',
     },
+    {
+      name: 'About',
+      path: '/about',
+    }
   ];
 
     return (

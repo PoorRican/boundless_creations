@@ -4,8 +4,8 @@ import ContentWrapper from "../../components/ContentWrapper";
 import {Link} from "react-router-dom";
 import React, {useEffect} from "react";
 import ProjectSection from "../../components/ProjectSection";
-import {Blurb} from "./components/Blurb";
-import {InterestsSection} from "./components/InterestsSection";
+import {Blurb} from "../../components/Blurb";
+import intro_blurb from "./components/intro_blurb.json";
 
 const Home = () => {
 
@@ -17,7 +17,7 @@ const Home = () => {
     <ContentWrapper>
 
       <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-        <Blurb />
+        <Blurb content={intro_blurb}/>
 
         <div className={"flex flex-col gap-8"}>
           <ContactSection className="ring-1 p-6 rounded-xl" />
